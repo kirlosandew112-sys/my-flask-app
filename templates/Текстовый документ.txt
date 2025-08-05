@@ -1,0 +1,229 @@
+<!-- Footer (continued from Viber SVG) -->
+    <section id="footer" class="bg-blue-900 text-white py-8" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2 text-sm sm:text-base">📍 Івано-Франківськ, вул. Прикладна, 10</p>
+            <p class="mb-2 text-sm sm:text-base">📞 <a href="tel:+380123456789">+380 123 456 789</a></p>
+            <div class="flex justify-center gap-4 mb-4">
+                <a href="https://t.me/your-channel" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="0">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-2.56 9.6c-.18.68-.68.88-1.04.44l-3-2.24-1.44 1.4c-.16.16-.3.22-.48.22l.2-3.04 5.6-5.08c.24-.22-.02-.34-.28-.14l-6.96 4.4-3-1c-.64-.2-.64-.88.28-1.12l12-4.8c.48-.2.92.08.88.76z"/></svg>
+                </a>
+                <a href="viber://chat?number=+380123456789" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="100">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M16.8 8.3c-.4-.2-.8-.3-1.2-.3-.7 0-1.3.3-1.8.8-.4.5-.6 1.2-.6 2 0 .6.2 1.2.5 1.8.4.6 1 1 1.8 1.3.8.3 1.6.2 2.3-.2.6-.4 1-1 1.2-1.7.1-.7 0-1.4-.4-2zm-5.3-4.2c-4.4 0-8 3.6-8 8s3.6 8 8 8h1.4c.4 0 .7-.3.7-.7v-2.4c0-.4-.3-.7-.7-.7h-.7c-1.2 0-2.3-.4-3.2-1.1l-.2-.2c-.7-.7-1.2-1.6-1.4-2.6-.1-.5-.1-1 0-1.5l.3-.3c.5-.5 1.1-.8 1.8-.8h.4c.4 0 .7-.3.7-.7v-1.7c0-.4-.3-.7-.7-.7h-1c-.7 0-1.3.3-1.8.8-.3.3-.5.7-.6 1.1-.1.5-.1 1 0 1.5.2 1 .7 1.9 1.4 2.6l.2.2c.9.7 2 1.1 3.2 1.1h.7c.4 0 .7.3.7.7v2.4c0 .4-.3.7-.7.7H11c-5 0-9-4-9-9s4-9 9-9c2.2 0 4.2.8 5.8 2.1.3.3.8.3 1.1 0 .3-.3.3-.8 0-1.1-1.8-1.5-4.1-2.4-6.5-2.4zm8.8 2.8c.3 0 .5.2.5.5s-.2.5-.5.5c-.8 0-1.5.6-1.5 1.4 0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-1.1.9-2 2-2zm1.5 3.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-.6-.4-1-1-1s-1 .4-1 1c0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-1.1.9-2 2-2s2 .9 2 2z"/></svg>
+                </a>
+                <a href="https://instagram.com/your-profile" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="200">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.5.2.9.5 1.3.9.4.4.7.8.9 1.3.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.5-.5.9-.9 1.3-.4.4-.8.7-1.3.9-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.5-.2-.9-.5-1.3-.9-.4-.4-.7-.8-.9-1.3-.2-.4-.3-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.5.5-.9.9-1.3.4-.4.8-.7 1.3-.9.4-.2 1-.3 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 5.9.2 5 .3 4.2.6c-.8.3-1.5.7-2.1 1.3-.6.6-1 1.3-1.3 2.1-.3.8-.4 1.7-.5 2.9C0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.2.2 2 .5 2.9.3.8.7 1.5 1.3 2.1.6.6 1.3 1 2.1 1.3.8.3 1.7.4 2.9.5 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2-.2 2.9-.5.8-.3 1.5-.7 2.1-1.3.6-.6 1-1.3 1.3-2.1.3-.8.4-1.7.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.2-2-.5-2.9-.3-.8-.7-1.5-1.3-2.1-.6-.6-1.3-1-2.1-1.3-.8-.3-1.7-.4-2.9-.5C15.7 0 15.3 0 12 0zm0 5.8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.2-10.4c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4z"/></svg>
+                </a>
+            </div>
+            <button id="theme-toggle" class="text-yellow-500 hover:scale-110 transition text-2xl" data-aos="zoom-in" data-aos-delay="300">☾</button>
+            <p class="mt-4 text-sm sm:text-base">© 2025 Вантажні перевезення в Івано-Франківську. Всі права захищено.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuToggle.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.animation = 'slideDown 0.3s ease-in-out';
+            }
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        });
+
+        // Carousel Functionality
+        const carousel = document.querySelector('.carousel-inner');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carouselPrev = document.querySelector('.carousel-button.prev');
+        const carouselNext = document.querySelector('.carousel-button.next');
+        let carouselIndex = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carouselIndex);
+            });
+        }
+
+        carouselNext.addEventListener('click', () => {
+            carouselIndex = (carouselIndex + 1) % carouselItems.length;
+            updateCarousel();
+        });
+
+        carouselPrev.addEventListener('click', () => {
+            carouselIndex = (carouselIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        });
+
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                carouselIndex = index;
+                updateCarousel();
+            });
+        });
+
+        setInterval(() => {
+            carouselIndex = (carouselIndex + 1) % carouselItems.length;
+            updateCarousel();
+        }, 5000);
+
+        // Reviews Carousel
+        const reviewsCarousel = document.querySelector('.reviews-carousel-inner');
+        const reviewsItems = document.querySelectorAll('.reviews-carousel-item');
+        const reviewsDots = document.querySelectorAll('.reviews-carousel-dot');
+        const reviewsPrev = document.querySelector('.reviews-carousel .carousel-button.prev');
+        const reviewsNext = document.querySelector('.reviews-carousel .carousel-button.next');
+        let reviewsIndex = 0;
+
+        function updateReviewsCarousel() {
+            const itemWidth = 100 / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
+            reviewsCarousel.style.transform = `translateX(-${reviewsIndex * itemWidth}%)`;
+            reviewsDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === reviewsIndex);
+            });
+        }
+
+        reviewsNext.addEventListener('click', () => {
+            reviewsIndex = (reviewsIndex + 1) % reviewsItems.length;
+            updateReviewsCarousel();
+        });
+
+        reviewsPrev.addEventListener('click', () => {
+            reviewsIndex = (reviewsIndex - 1 + reviewsItems.length) % reviewsItems.length;
+            updateReviewsCarousel();
+        });
+
+        reviewsDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                reviewsIndex = index;
+                updateReviewsCarousel();
+            });
+        });
+
+        window.addEventListener('resize', updateReviewsCarousel);
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isActive = !answer.classList.contains('hidden');
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.add('hidden');
+                ans.previousElementSibling.classList.remove('active');
+            });
+            if (!isActive) {
+                answer.classList.remove('hidden');
+                element.classList.add('active');
+                answer.style.animation = 'slideDown 0.3s ease-in-out';
+            }
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            themeToggle.textContent = htmlElement.classList.contains('dark') ? '☼' : '☾';
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load Theme Preference
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+            themeToggle.textContent = '☼';
+        }
+
+        // Calculator Logic
+        const calcButton = document.getElementById('calc-button');
+        const calcService = document.getElementById('calc-service');
+        const calcVehicle = document.getElementById('calc-vehicle');
+        const calcDistance = document.getElementById('calc-distance');
+        const calcHours = document.getElementById('calc-hours');
+        const modal = document.getElementById('modal');
+        const modalClose = document.getElementById('modal-close');
+        const calcResult = document.getElementById('calc-result');
+
+        calcButton.addEventListener('click', () => {
+            const service = calcService.value;
+            const vehicle = calcVehicle.value;
+            const distance = parseFloat(calcDistance.value) || 0;
+            const hours = parseInt(calcHours.value) || 1;
+            let cost = 0;
+
+            // Base prices
+            const prices = {
+                'Послуги вантажників': { base: 200, perHour: 200 },
+                'Вантажні перевезення': { base: vehicle === '1т, 7м3' ? 450 : vehicle === '3т, 18м3' ? 500 : vehicle === '3т, 20м3' ? 500 : 0, perKm: 25 },
+                'Вивіз будівельного сміття': { base: vehicle === '1т, 7м3' ? 700 : vehicle === '3т, 18м3' ? 1000 : vehicle === '3т, 20м3' ? 1000 : 700, perKm: 25 },
+                'Підйом на поверх без ліфта': { base: 5, perFloor: 5 },
+                'Підйом на поверх з ліфтом': { base: 200 },
+                'Квартирні та офісні переїзди': { base: vehicle === '1т, 7м3' ? 450 : vehicle === '3т, 18м3' ? 500 : vehicle === '3т, 20м3' ? 500 : 450, perKm: 25, loader: 200 }
+            };
+
+            if (service in prices) {
+                cost = prices[service].base;
+                if (service === 'Послуги вантажників') {
+                    cost = prices[service].perHour * hours;
+                } else if (['Вантажні перевезення', 'Вивіз будівельного сміття', 'Квартирні та офісні переїзди'].includes(service)) {
+                    cost += prices[service].perKm * distance;
+                    if (service === 'Квартирні та офісні переїзди') {
+                        cost += prices[service].loader * hours;
+                    }
+                } else if (service === 'Підйом на поверх без ліфта') {
+                    cost = prices[service].perFloor * (distance || 1); // Assuming distance as floors for simplicity
+                }
+                cost = Math.max(cost, 200); // Minimum cost
+                calcResult.textContent = `Приблизна вартість: ${Math.round(cost)} грн`;
+            } else {
+                calcResult.textContent = 'Будь ласка, виберіть послугу';
+            }
+
+            modal.style.display = 'flex';
+            modal.style.animation = 'fadeIn 0.3s ease-in-out';
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

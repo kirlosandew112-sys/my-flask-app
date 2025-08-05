@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="uk" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вантажні перевезення в Івано-Франківську</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <meta name="description" content="Професійні вантажні перевезення в Івано-Франківську та області. Швидко, надійно, доступно!">
+    <meta name="keywords" content="вантажні перевезення, Івано-Франківськ, транспортні послуги, перевезення вантажів, квартирні переїзди, доставка будматеріалів">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Вантажні перевезення в Івано-Франківську",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "вул. Прикладна, 10",
+        "addressLocality": "Івано-Франківськ",
+        "addressRegion": "Івано-Франківська область",
+        "addressCountry": "UA"
+      },
+      "telephone": "+380123456789",
+      "url": "https://your-site.com"
+    }
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-down': 'slideDown 0.3s ease-in-out',
+                        'rotate-90': 'rotate90 0.3s ease-in-out',
+                        'scale-in': 'scaleIn 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', maxHeight: '0' },
+                            '100%': { opacity: '1', maxHeight: '1000px' },
+                        },
+                        rotate90: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(90deg)' },
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .carousel, .reviews-carousel { position: relative; overflow: hidden; }
+        .carousel-inner, .reviews-carousel-inner { display: flex; transition: transform 0.5s ease; }
+        .carousel-item, .reviews-carousel-item { flex: 0 0 100%; }
+        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; padding: 10px; cursor: pointer; }
+        .carousel-button.prev { left: 10px; }
+        .carousel-button.next { right: 10px; }
+        .carousel-dots, .reviews-carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+        .carousel-dot, .reviews-carousel-dot { width: 12px; height: 12px; background: #d1d5db; border-radius: 50%; cursor: pointer; transition: background-color 0.3s; }
+        .carousel-dot.active, .reviews-carousel-dot.active { background: #facc15; }
+        .faq-item::before { content: '➤'; display: inline-block; margin-right: 8px; color: #facc15; transition: transform 0.3s; }
+        .faq-item.active::before { transform: rotate(90deg); }
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        #preloader .progress { height: 2px; width: 50%; background: #facc15; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 1000; }
+        #modal-content { background: white; padding: 20px; border-radius: 8px; max-width: 90%; width: 400px; position: relative; }
+        #modal-close { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px; }
+        @media (min-width: 640px) {
+            .reviews-carousel-item { flex: 0 0 50%; }
+        }
+        @media (min-width: 1024px) {
+            .reviews-carousel-item { flex: 0 0 33.33%; }
+        }
+        /* Dark Theme */
+        .dark {
+            --bg-primary: #1f2937;
+            --bg-secondary: #374151;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --button-bg: #facc15;
+            --button-hover: #eab308;
+            --card-bg: #374151;
+            --header-bg: #1e3a8a;
+        }
+        .dark body { background: var(--bg-primary); color: var(--text-primary); }
+        .dark .bg-gray-100, .dark .bg-gradient-to-b { background: var(--bg-primary); }
+        .dark .bg-white { background: var(--card-bg); }
+        .dark .text-gray-600 { color: var(--text-secondary); }
+        .dark .text-blue-900 { color: var(--text-primary); }
+        .dark .bg-blue-900 { background: var(--header-bg); }
+        .dark .bg-yellow-500 { background: var(--button-bg); }
+        .dark .bg-yellow-500:hover { background: var(--button-hover); }
+        .dark .bg-green-500 { background: var(--button-bg); }
+        .dark .bg-green-500:hover { background: var(--button-hover); }
+        .dark .bg-blue-900.text-white .nav-link:hover { color: var(--button-bg); }
+        .dark .border-gray-300 { border-color: var(--text-secondary); }
+        .dark .faq-item:hover { background: #4b5563; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="progress"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-blue-900 text-white py-4 fixed w-full top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="/static/logo.png" alt="Логотип" class="h-12 w-auto" data-aos="fade-in">
+                <button id="menu-toggle" class="md:hidden text-2xl text-yellow-500 ml-4" aria-label="Toggle menu">☰</button>
+            </div>
+            <ul id="nav-menu" class="hidden md:flex justify-center space-x-6">
+                <li><a href="#home" class="hover:text-yellow-500 transition font-semibold nav-link">Головна</a></li>
+                <li><a href="#services" class="hover:text-yellow-500 transition font-semibold nav-link">Послуги</a></li>
+                <li><a href="#fleet" class="hover:text-yellow-500 transition font-semibold nav-link">Автопарк</a></li>
+                <li><a href="#why-us" class="hover:text-yellow-500 transition font-semibold nav-link">Чому ми</a></li>
+                <li><a href="#calculator" class="hover:text-yellow-500 transition font-semibold nav-link">Калькулятор</a></li>
+                <li><a href="#about" class="hover:text-yellow-500 transition font-semibold nav-link">Про нас</a></li>
+                <li><a href="#reviews" class="hover:text-yellow-500 transition font-semibold nav-link">Відгуки</a></li>
+                <li><a href="#faq" class="hover:text-yellow-500 transition font-semibold nav-link">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-yellow-500 transition font-semibold nav-link">Контакти</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu" class="hidden bg-blue-900/90 text-white fixed top-16 left-0 w-full z-40">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#home" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="0">Головна</a></li>
+                <li><a href="#services" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="50">Послуги</a></li>
+                <li><a href="#fleet" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="100">Автопарк</a></li>
+                <li><a href="#why-us" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="150">Чому ми</a></li>
+                <li><a href="#calculator" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="200">Калькулятор</a></li>
+                <li><a href="#about" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="250">Про нас</a></li>
+                <li><a href="#reviews" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="300">Відгуки</a></li>
+                <li><a href="#faq" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="350">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-yellow-500 transition font-semibold nav-link" data-aos="fade-in" data-aos-delay="400">Контакти</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 bg-blue-900 text-white bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1586528116311-ad8fa7b454d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')] bg-fixed">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" data-aos="zoom-in">Вантажні перевезення в Івано-Франківську</h1>
+            <p class="text-lg sm:text-xl mb-6" data-aos="zoom-in" data-aos-delay="100">Швидко, надійно, професійно – доставимо ваш вантаж у будь-яку точку!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="zoom-in" data-aos-delay="200">
+                <a href="#contact" class="bg-yellow-500 text-blue-900 font-semibold py-4 px-8 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition w-full sm:w-48 text-center">Замовити перевезення</a>
+                <a href="tel:+380123456789" class="bg-yellow-500 text-blue-900 font-semibold py-4 px-8 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition w-full sm:w-48 text-center">Подзвонити</a>
+                <a href="https://wa.me/+380123456789" class="bg-yellow-500 text-blue-900 font-semibold py-4 px-8 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition w-full sm:w-48 text-center">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gradient-to-b from-white to-gray-50" data-aos="flip-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Наші послуги</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base" data-aos="fade-down" data-aos-delay="100">Усі види вантажно-розвантажувальних робіт. Кожне замовлення пов'язане із наданням вантажників та вантажного авто розраховується індивідуально через велику кількість нюансів. Телефонуйте за вказаними номерами і ми розрахуємо вартість, виходячи з обсягів роботи.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="0">
+                    <img src="/static/service-loader.jpg" alt="Послуги вантажників" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a10 10 0 0 0-10-10zm0 16a6 6 0 1 1 6-6 6 6 0 0 1-6 6z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Послуги вантажників</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Вартість однієї години роботи одного вантажника</li>
+                        <li>Від 200 грн/год, готівковий або безготівковий розрахунок</li>
+                        <li>Підсобники від 150 грн</li>
+                        <li>Розвантаження фур, контейнерів тощо – від 200 грн/год</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Послуги вантажників">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="100">
+                    <img src="/static/service-transport.jpg" alt="Вантажні перевезення" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M20 8h-3V6.5A2.5 2.5 0 0 0 14.5 4h-5A2.5 2.5 0 0 0 7 6.5V8H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zm-10-1.5A1.5 1.5 0 0 1 11.5 5h1A1.5 1.5 0 0 1 14 6.5V8h-4V6.5z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Вантажні перевезення</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Залежить від обсягу, машини й відстані</li>
+                        <li>До 2т у межах міста — від 450 грн</li>
+                        <li>До 3т у межах міста — від 500 грн</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Вантажні перевезення">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="200">
+                    <img src="/static/service-trash.jpg" alt="Вивіз будівельного сміття" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4-4h4v2H10V3zm-6 4h16v1H4V7z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Вивіз будівельного сміття</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Залежить від кількості мішків</li>
+                        <li>До 2т — від 700 до 1800 грн</li>
+                        <li>До 3т — від 1000 грн</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Вивіз будівельного сміття">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="300">
+                    <img src="/static/service-nolift.jpg" alt="Підйом на поверх без ліфта" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2zm0 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Підйом на поверх без ліфта</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>До 30 кг — від 5 грн/поверх</li>
+                        <li>Понад 30 кг — від 7 грн/поверх</li>
+                        <li>Гіпсокартон, ДСП — від 12 грн/поверх</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Підйом на поверх без ліфта">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="400">
+                    <img src="/static/service-lift.jpg" alt="Підйом на поверх з ліфтом" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M5 3v18h6V11h2v10h6V3H5zm2 2h10v2H7V5zm0 4h10v2H7V9zm0 4h10v2H7v-2z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Підйом на поверх з ліфтом</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Будь-який вантаж: меблі, техніка, матеріали</li>
+                        <li>Готівковий або безготівковий розрахунок, від 200 грн</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Підйом на поверх з ліфтом">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="flip-up" data-aos-delay="500">
+                    <img src="/static/service-move.jpg" alt="Квартирні та офісні переїзди" class="w-full h-40 object-cover">
+                    <div class="flex items-center p-4">
+                        <svg class="w-6 h-6 fill-yellow-500 mr-2" data-aos="zoom-in" viewBox="0 0 24 24"><path d="M7 2v6H2v8h5v6h10v-6h5V8h-5V2H7zm2 2h6v2H9V4zm0 4h6v2H9V8zm0 4h6v2H9v-2zm8 4h-6v2h6v-2z"/></svg>
+                        <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Квартирні та офісні переїзди</h3>
+                    </div>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Вантажники — від 200 грн</li>
+                        <li>Авто — від 450 грн</li>
+                        <li>Планування і уточнення всіх деталей</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Квартирні та офісні переїзди">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="py-16 bg-gray-100" data-aos="fade-right">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Наш автопарк</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-right" data-aos-delay="0">
+                    <img src="/static/blue-van.jpg" alt="1т, 7м3" class="w-full h-40 object-cover">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 p-4">Вантажівка: 1 т, 7 м3, суцільнометалевий кузов</h3>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Розміри: довжина — 3м, ширина — 1.5м, висота — 1.5м</li>
+                        <li>Вартість в межах міста: від 400 грн./год</li>
+                        <li>Безкоштовна оцінка вартості за телефоном</li>
+                        <li>Вартість 1 км за межі міста: уточнюється</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Вантажівка 1т, 7м3">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-right" data-aos-delay="100">
+                    <img src="/static/white-van.jpg" alt="3т, 18м3" class="w-full h-40 object-cover">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 p-4">Вантажівка: 3 т, 18 м3, суцільнометалевий кузов</h3>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Розміри: довжина — 5м, ширина — 1.8м, висота — 1.9м</li>
+                        <li>Вартість в межах міста: від 450 грн./год</li>
+                        <li>Безкоштовна оцінка вартості за телефоном</li>
+                        <li>Вартість 1 км за межі міста: уточнюється</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Вантажівка 3т, 18м3">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-right" data-aos-delay="200">
+                    <img src="/static/sprinter.jpg" alt="3т, 20м3" class="w-full h-40 object-cover">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 p-4">Вантажівка: 3 т, 20 м3, суцільнометалевий кузов</h3>
+                    <ul class="px-4 pb-4 text-gray-600 list-disc list-inside flex-grow text-sm sm:text-base">
+                        <li>Розміри: довжина — 4.3м, ширина — 2.1м, висота — 2.3м</li>
+                        <li>Вартість в межах міста: від 500 грн./год</li>
+                        <li>Безкоштовна оцінка вартості за телефоном</li>
+                        <li>Вартість 1 км за межі міста: уточнюється</li>
+                    </ul>
+                    <form action="/callback" method="POST" class="p-4">
+                        <input type="hidden" name="service" value="Вантажівка 3т, 20м3">
+                        <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                        <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="py-16 bg-gradient-to-b from-white to-gray-50" data-aos="zoom-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Чому варто замовити послуги саме у нас?</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base" data-aos="fade-down" data-aos-delay="100">У нас одні з найнижчих цін на ринку, якщо не вірите, то зателефонуйте і переконайтесь у цьому самі.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4 text-center" data-aos="zoom-in" data-aos-delay="0">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4">Низькі ціни</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">У нас одні з найнижчих цін на ринку. Якщо не вірите, зателефонуйте та переконайтесь у цьому самі.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center" data-aos="zoom-in" data-aos-delay="150">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4">Кваліфікований персонал</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Якість послуг забезпечується професіоналами. Ми несемо відповідальність за збереження вашого майна.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4">Оперативність</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">У нас завжди є вільні хлопці, які готові виїхати одразу після дзвінка.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center" data-aos="zoom-in" data-aos-delay="450">
+                    <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4">Наявність безготівкового розрахунку</h3>
+                    <p class="text-gray-600 text-sm sm:text-base">Можливість оплатити послуги безготівковим способом.</p>
+                </div>
+            </div>
+            <div class="text-center mt-8" data-aos="zoom-in" data-aos-delay="600">
+                <p class="text-gray-600 mb-4 text-sm sm:text-base">Якщо ви заздалегідь хочете дізнатися вартість — телефонуйте і ми допоможемо її розрахувати.</p>
+                <form action="/callback" method="POST" class="max-w-md mx-auto">
+                    <input type="hidden" name="service" value="Чому ми">
+                    <input type="text" name="name" placeholder="Ваше ім'я" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                    <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full p-3 mb-2 border rounded-lg text-sm sm:text-base" required>
+                    <button type="submit" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Замовити дзвінок</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="py-16 bg-gray-100" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Калькулятор вартості</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base" data-aos="fade-down" data-aos-delay="100">Розрахуйте приблизну вартість наших послуг за кілька кліків!</p>
+            <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="mb-4">
+                    <label for="calc-service" class="block text-gray-700 mb-2 text-sm sm:text-base">Тип послуги</label>
+                    <select id="calc-service" class="w-full p-3 border rounded-lg text-sm sm:text-base">
+                        <option value="Послуги вантажників">Послуги вантажників</option>
+                        <option value="Вантажні перевезення">Вантажні перевезення</option>
+                        <option value="Вивіз будівельного сміття">Вивіз будівельного сміття</option>
+                        <option value="Підйом на поверх без ліфта">Підйом на поверх без ліфта</option>
+                        <option value="Підйом на поверх з ліфтом">Підйом на поверх з ліфтом</option>
+                        <option value="Квартирні та офісні переїзди">Квартирні та офісні переїзди</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="calc-vehicle" class="block text-gray-700 mb-2 text-sm sm:text-base">Машина</label>
+                    <select id="calc-vehicle" class="w-full p-3 border rounded-lg text-sm sm:text-base">
+                        <option value="none">Без машини</option>
+                        <option value="1т, 7м3">1т, 7м3</option>
+                        <option value="3т, 18м3">3т, 18м3</option>
+                        <option value="3т, 20м3">3т, 20м3</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="calc-distance" class="block text-gray-700 mb-2 text-sm sm:text-base">Відстань (км)</label>
+                    <input type="number" id="calc-distance" min="0" step="1" placeholder="км" class="w-full p-3 border rounded-lg text-sm sm:text-base">
+                </div>
+                <div class="mb-4">
+                    <label for="calc-hours" class="block text-gray-700 mb-2 text-sm sm:text-base">Час роботи (години)</label>
+                    <input type="number" id="calc-hours" min="1" step="1" placeholder="години" class="w-full p-3 border rounded-lg text-sm sm:text-base">
+                </div>
+                <button id="calc-button" class="w-full bg-yellow-500 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 hover:text-white transition text-sm sm:text-base">Розрахувати</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Calculator -->
+    <div id="modal" data-aos="zoom-in">
+        <div id="modal-content">
+            <span id="modal-close">✕</span>
+            <h3 class="text-lg sm:text-xl font-semibold text-blue-900 mb-4">Приблизна вартість</h3>
+            <p id="calc-result" class="text-gray-600 text-sm sm:text-base"></p>
+        </div>
+    </div>
+
+    <!-- Gallery (Carousel) Section -->
+    <section id="gallery" class="py-16 bg-gray-100" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Наші вантажівки в дії</h2>
+            <div class="carousel" data-aos="zoom-in">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="/static/truck1.jpg" alt="Вантажівка 1" class="w-full h-80 sm:h-96 object-cover rounded-lg" width="800" height="384">
+                        <p class="text-center text-gray-600 mt-4 text-sm sm:text-base">Газель, до 2 тонн</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/truck2.jpg" alt="Вантажівка 2" class="w-full h-80 sm:h-96 object-cover rounded-lg" width="800" height="384">
+                        <p class="text-center text-gray-600 mt-4 text-sm sm:text-base">MAN, до 5 тонн</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/truck3.jpg" alt="Вантажівка 3" class="w-full h-80 sm:h-96 object-cover rounded-lg" width="800" height="384">
+                        <p class="text-center text-gray-600 mt-4 text-sm sm:text-base">КамАЗ, до 10 тонн</p>
+                    </div>
+                </div>
+                <button class="carousel-button prev hidden sm:block">❮</button>
+                <button class="carousel-button next hidden sm:block">❯</button>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-gradient-to-b from-white to-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Відгуки клієнтів</h2>
+            <div class="reviews-carousel" data-aos="zoom-in">
+                <div class="reviews-carousel-inner">
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Швидко доставили меблі по Івано-Франківську, все ціле, водій ввічливий!"</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Олена, Івано-Франківськ</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Замовляли перевезення будматеріалів, приїхали вчасно, ціни адекватні."</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Ігор, Калуш</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Дуже зручно, що заявку можна залишити онлайн. Швидко передзвонили!"</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Марія, Надвірна</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Перевозили офіс, вантажники акуратні, все організовано."</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Андрій, Коломия</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Вивезли будівельне сміття за день, рекомендую!"</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Олег, Івано-Франківськ</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Вантажники професіонали, швидко впоралися з важкими коробками."</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Наталія, Яремче</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Доставка між містами була без затримок, дякую!"</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Віктор, Долина</p>
+                    </div>
+                    <div class="reviews-carousel-item bg-white p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">"Зручний безготівковий розрахунок, все прозоро."</p>
+                        <p class="font-semibold text-blue-900 text-sm sm:text-base">Світлана, Бурштин</p>
+                    </div>
+                </div>
+                <button class="carousel-button prev hidden sm:block">❮</button>
+                <button class="carousel-button next hidden sm:block">❯</button>
+                <div class="reviews-carousel-dots">
+                    <span class="reviews-carousel-dot active"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                    <span class="reviews-carousel-dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Static) -->
+    <section id="map" class="py-16 bg-gradient-to-b from-white to-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Зона обслуговування</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base" data-aos="fade-down" data-aos-delay="100">Ми працюємо в Івано-Франківську та по всій Івано-Франківській області, включаючи Коломию, Калуш, Надвірну та інші міста.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ivano-Frankivsk_Oblast_map.svg/800px-Ivano-Frankivsk_Oblast_map.svg.png" alt="Карта Івано-Франківської області" class="w-full h-80 sm:h-96 object-contain rounded-lg mx-auto" data-aos="fade-up" data-aos-delay="200">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Про нас</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1586528116022-aeda2b28a0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Наша команда" class="rounded-lg w-full h-80 sm:h-96 object-cover">
+                </div>
+                <div class="md:w-1/2 md:pl-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">Ми знаходимося на ринку надання послуг вантажників та вантажоперевезень протягом 6 років. У нас колосальний досвід, індивідуальний підхід, великий штат та задоволені замовники.</p>
+                    <p class="text-gray-600 mb-4 text-sm sm:text-base">Працюємо як з фізичними, так і з юридичними особами. Приймаємо готівкову та безготівкову оплату. Завжди маємо вільні машини і вантажників.</p>
+                    <p class="text-gray-600 text-sm sm:text-base">Будемо раді співпраці і сподіваємось, що ви станете одним із наших клієнтів.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-100" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-down">Поширені запитання</h2>
+            <div class="space-y-2">
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="0">Чи можна замовити одного вантажника на годину?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Звичайно можна.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="50">Якщо викид будівельного сміття в одну ходу не влізе, скільки коштуватиме друга?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">У будь-якому варіанті дешевше ніж перша.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="100">Чи візьмете ви разом із вантажем одного чи двох осіб?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так, візьмемо.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="150">Як швидко ви зможете відреагувати на виклик?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Протягом півгодини завжди зможемо вам допомогти.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="200">Чи є у вас безготівковий розрахунок?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так звичайно.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="250">Якщо ми вас замовили, але за півгодини до приїзду ваших хлопців у нас щось змінилось...</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Найчастіше так, але завжди за подальшу співпрацю, тож індивідуально.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="300">Чи є у вас машина з маніпулятором?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так, є.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="350">Чи впливає розбирання та збирання меблів на вартість перевезення?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так, впливає, якщо обсяг складання та розбирання займає достатньо часу.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="400">Коли до вас можна вам набирати?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Ми працюємо цілодобово.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="450">Якими днями ви працюєте?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Ми працюємо 7 днів на тиждень та 365 днів на рік.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="500">Чи можна замовити лише машину окремо чи лише вантажників?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Звичайно можна, вартість буде на 30% вищою за середні ціни.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="550">Чи є у вас знижки постійним клієнтам при великому обсязі замовлень?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так звичайно можна.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="600">Кілометраж машини за містом за якими цінами?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Звісно є, ми за тривалу співпрацю.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="650">Чи займаєтесь ви перевезенням чи вивезенням піаніно?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так, займаємось.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="700">Чи є у вас можливість розібрати та зібрати меблі з вашим інструментом?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Так, займаємось.</div>
+                <div class="faq-item bg-white border-b border-gray-300 p-5 cursor-pointer font-semibold text-blue-900 hover:bg-blue-50 transition text-base sm:text-lg" onclick="toggleFaq(this)" data-aos="fade-left" data-aos-delay="750">Ви працюєте тільки по Івано-Франківську?</div>
+                <div class="faq-answer hidden p-5 bg-white text-gray-600 animate-slide-down text-sm sm:text-base">Ні, не тільки містом, але й за будь-якими його межами.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-16 bg-gradient-to-b from-white to-gray-50" data-aos="zoom-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="zoom-in">Зв'яжіться з нами</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Форма заявки -->
+                <div data-aos="fade-right">
+                    <h3 class="text-lg sm:text-xl font-semibold text-center mb-4">Залишити заявку</h3>
+                    <form action="/send" method="POST" class="max-w-full sm:max-w-lg mx-auto">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2 text-sm sm:text-base">Ім'я</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg text-sm sm:text-base" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2 text-sm sm:text-base">Телефон</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-3 border rounded-lg text-sm sm:text-base" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 mb-2 text-sm sm:text-base">Повідомлення</label>
+                            <textarea id="message" name="message" class="w-full p-3 border rounded-lg text-sm sm:text-base" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 hover:scale-105 hover:shadow-lg hover:-translate-y-1 transition w-full text-sm sm:text-base">Відправити заявку</button>
+                    </form>
+                </div>
+                <!-- Форма обратного звонка -->
+                <div data-aos="fade-left">
+                    <h3 class="text-lg sm:text-xl font-semibold text-center mb-4">Замовити дзвінок</h3>
+                    <form action="/callback" method="POST" class="max-w-full sm:max-w-lg mx-auto">
+                        <div class="mb-4">
+                            <label for="callback_name" class="block text-gray-700 mb-2 text-sm sm:text-base">Ім'я</label>
+                            <input type="text" id="callback_name" name="name" class="w-full p-3 border rounded-lg text-sm sm:text-base" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="callback_phone" class="block text-gray-700 mb-2 text-sm sm:text-base">Телефон</label>
+                            <input type="tel" id="callback_phone" name="phone" class="w-full p-3 border rounded-lg text-sm sm:text-base" required>
+                        </div>
+                        <button type="submit" class="bg-green-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-400 hover:scale-105 hover:shadow-lg hover:-translate-y-1 transition w-full text-sm sm:text-base">Замовити дзвінок</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer (continued from Viber SVG) -->
+    <section id="footer" class="bg-blue-900 text-white py-8" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2 text-sm sm:text-base">📍 Івано-Франківськ, вул. Прикладна, 10</p>
+            <p class="mb-2 text-sm sm:text-base">📞 <a href="tel:+380123456789">+380 123 456 789</a></p>
+            <div class="flex justify-center gap-4 mb-4">
+                <a href="https://t.me/your-channel" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="0">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-2.56 9.6c-.18.68-.68.88-1.04.44l-3-2.24-1.44 1.4c-.16.16-.3.22-.48.22l.2-3.04 5.6-5.08c.24-.22-.02-.34-.28-.14l-6.96 4.4-3-1c-.64-.2-.64-.88.28-1.12l12-4.8c.48-.2.92.08.88.76z"/></svg>
+                </a>
+                <a href="viber://chat?number=+380123456789" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="100">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M16.8 8.3c-.4-.2-.8-.3-1.2-.3-.7 0-1.3.3-1.8.8-.4.5-.6 1.2-.6 2 0 .6.2 1.2.5 1.8.4.6 1 1 1.8 1.3.8.3 1.6.2 2.3-.2.6-.4 1-1 1.2-1.7.1-.7 0-1.4-.4-2zm-5.3-4.2c-4.4 0-8 3.6-8 8s3.6 8 8 8h1.4c.4 0 .7-.3.7-.7v-2.4c0-.4-.3-.7-.7-.7h-.7c-1.2 0-2.3-.4-3.2-1.1l-.2-.2c-.7-.7-1.2-1.6-1.4-2.6-.1-.5-.1-1 0-1.5l.3-.3c.5-.5 1.1-.8 1.8-.8h.4c.4 0 .7-.3.7-.7v-1.7c0-.4-.3-.7-.7-.7h-1c-.7 0-1.3.3-1.8.8-.3.3-.5.7-.6 1.1-.1.5-.1 1 0 1.5.2 1 .7 1.9 1.4 2.6l.2.2c.9.7 2 1.1 3.2 1.1h.7c.4 0 .7.3.7.7v2.4c0 .4-.3.7-.7.7H11c-5 0-9-4-9-9s4-9 9-9c2.2 0 4.2.8 5.8 2.1.3.3.8.3 1.1 0 .3-.3.3-.8 0-1.1-1.8-1.5-4.1-2.4-6.5-2.4zm8.8 2.8c.3 0 .5.2.5.5s-.2.5-.5.5c-.8 0-1.5.6-1.5 1.4 0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-1.1.9-2 2-2zm1.5 3.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-.6-.4-1-1-1s-1 .4-1 1c0 .3-.2.5-.5.5s-.5-.2-.5-.5c0-1.1.9-2 2-2s2 .9 2 2z"/></svg>
+                </a>
+                <a href="https://instagram.com/your-profile" class="text-yellow-500 hover:scale-110 transition" data-aos="zoom-in" data-aos-delay="200">
+                    <svg class="w-6 h-6 fill-yellow-500" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.5.2.9.5 1.3.9.4.4.7.8.9 1.3.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.5-.5.9-.9 1.3-.4.4-.8.7-1.3.9-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.5-.2-.9-.5-1.3-.9-.4-.4-.7-.8-.9-1.3-.2-.4-.3-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.5.5-.9.9-1.3.4-.4.8-.7 1.3-.9.4-.2 1-.3 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 5.9.2 5 .3 4.2.6c-.8.3-1.5.7-2.1 1.3-.6.6-1 1.3-1.3 2.1-.3.8-.4 1.7-.5 2.9C0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.2.2 2 .5 2.9.3.8.7 1.5 1.3 2.1.6.6 1.3 1 2.1 1.3.8.3 1.7.4 2.9.5 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2-.2 2.9-.5.8-.3 1.5-.7 2.1-1.3.6-.6 1-1.3 1.3-2.1.3-.8.4-1.7.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.2-2-.5-2.9-.3-.8-.7-1.5-1.3-2.1-.6-.6-1.3-1-2.1-1.3-.8-.3-1.7-.4-2.9-.5C15.7 0 15.3 0 12 0zm0 5.8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.2-10.4c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4z"/></svg>
+                </a>
+            </div>
+            <button id="theme-toggle" class="text-yellow-500 hover:scale-110 transition text-2xl" data-aos="zoom-in" data-aos-delay="300">☾</button>
+            <p class="mt-4 text-sm sm:text-base">© 2025 Вантажні перевезення в Івано-Франківську. Всі права захищено.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuToggle.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.animation = 'slideDown 0.3s ease-in-out';
+            }
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        });
+
+        // Carousel Functionality
+        const carousel = document.querySelector('.carousel-inner');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carouselPrev = document.querySelector('.carousel-button.prev');
+        const carouselNext = document.querySelector('.carousel-button.next');
+        let carouselIndex = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carouselIndex);
+            });
+        }
+
+        carouselNext.addEventListener('click', () => {
+            carouselIndex = (carouselIndex + 1) % carouselItems.length;
+            updateCarousel();
+        });
+
+        carouselPrev.addEventListener('click', () => {
+            carouselIndex = (carouselIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+        });
+
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                carouselIndex = index;
+                updateCarousel();
+            });
+        });
+
+        setInterval(() => {
+            carouselIndex = (carouselIndex + 1) % carouselItems.length;
+            updateCarousel();
+        }, 5000);
+
+        // Reviews Carousel
+        const reviewsCarousel = document.querySelector('.reviews-carousel-inner');
+        const reviewsItems = document.querySelectorAll('.reviews-carousel-item');
+        const reviewsDots = document.querySelectorAll('.reviews-carousel-dot');
+        const reviewsPrev = document.querySelector('.reviews-carousel .carousel-button.prev');
+        const reviewsNext = document.querySelector('.reviews-carousel .carousel-button.next');
+        let reviewsIndex = 0;
+
+        function updateReviewsCarousel() {
+            const itemWidth = 100 / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1);
+            reviewsCarousel.style.transform = `translateX(-${reviewsIndex * itemWidth}%)`;
+            reviewsDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === reviewsIndex);
+            });
+        }
+
+        reviewsNext.addEventListener('click', () => {
+            reviewsIndex = (reviewsIndex + 1) % reviewsItems.length;
+            updateReviewsCarousel();
+        });
+
+        reviewsPrev.addEventListener('click', () => {
+            reviewsIndex = (reviewsIndex - 1 + reviewsItems.length) % reviewsItems.length;
+            updateReviewsCarousel();
+        });
+
+        reviewsDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                reviewsIndex = index;
+                updateReviewsCarousel();
+            });
+        });
+
+        window.addEventListener('resize', updateReviewsCarousel);
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isActive = !answer.classList.contains('hidden');
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.add('hidden');
+                ans.previousElementSibling.classList.remove('active');
+            });
+            if (!isActive) {
+                answer.classList.remove('hidden');
+                element.classList.add('active');
+                answer.style.animation = 'slideDown 0.3s ease-in-out';
+            }
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            themeToggle.textContent = htmlElement.classList.contains('dark') ? '☼' : '☾';
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load Theme Preference
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+            themeToggle.textContent = '☼';
+        }
+
+        // Calculator Logic
+        const calcButton = document.getElementById('calc-button');
+        const calcService = document.getElementById('calc-service');
+        const calcVehicle = document.getElementById('calc-vehicle');
+        const calcDistance = document.getElementById('calc-distance');
+        const calcHours = document.getElementById('calc-hours');
+        const modal = document.getElementById('modal');
+        const modalClose = document.getElementById('modal-close');
+        const calcResult = document.getElementById('calc-result');
+
+        calcButton.addEventListener('click', () => {
+            const service = calcService.value;
+            const vehicle = calcVehicle.value;
+            const distance = parseFloat(calcDistance.value) || 0;
+            const hours = parseInt(calcHours.value) || 1;
+            let cost = 0;
+
+            // Base prices
+            const prices = {
+                'Послуги вантажників': { base: 200, perHour: 200 },
+                'Вантажні перевезення': { base: vehicle === '1т, 7м3' ? 450 : vehicle === '3т, 18м3' ? 500 : vehicle === '3т, 20м3' ? 500 : 0, perKm: 25 },
+                'Вивіз будівельного сміття': { base: vehicle === '1т, 7м3' ? 700 : vehicle === '3т, 18м3' ? 1000 : vehicle === '3т, 20м3' ? 1000 : 700, perKm: 25 },
+                'Підйом на поверх без ліфта': { base: 5, perFloor: 5 },
+                'Підйом на поверх з ліфтом': { base: 200 },
+                'Квартирні та офісні переїзди': { base: vehicle === '1т, 7м3' ? 450 : vehicle === '3т, 18м3' ? 500 : vehicle === '3т, 20м3' ? 500 : 450, perKm: 25, loader: 200 }
+            };
+
+            if (service in prices) {
+                cost = prices[service].base;
+                if (service === 'Послуги вантажників') {
+                    cost = prices[service].perHour * hours;
+                } else if (['Вантажні перевезення', 'Вивіз будівельного сміття', 'Квартирні та офісні переїзди'].includes(service)) {
+                    cost += prices[service].perKm * distance;
+                    if (service === 'Квартирні та офісні переїзди') {
+                        cost += prices[service].loader * hours;
+                    }
+                } else if (service === 'Підйом на поверх без ліфта') {
+                    cost = prices[service].perFloor * (distance || 1); // Assuming distance as floors for simplicity
+                }
+                cost = Math.max(cost, 200); // Minimum cost
+                calcResult.textContent = `Приблизна вартість: ${Math.round(cost)} грн`;
+            } else {
+                calcResult.textContent = 'Будь ласка, виберіть послугу';
+            }
+
+            modal.style.display = 'flex';
+            modal.style.animation = 'fadeIn 0.3s ease-in-out';
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

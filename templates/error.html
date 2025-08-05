@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помилка</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Error Section -->
+    <section class="min-h-screen flex items-center justify-center bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-red-600 mb-6 animate-fade-in">Помилка</h1>
+            <p class="text-xl text-gray-600 mb-8 animate-fade-in">{{ message }}</p>
+            <a href="/" class="bg-blue-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 transition animate-fade-in">Повернутися на головну</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">📍 Івано-Франківськ, вул. Прикладна, 10</p>
+            <p class="mb-2">📞 <a href="tel:+380123456789">+380 123 456 789</a></p>
+            <p>&copy; 2025 Вантажні перевезення в Івано-Франківську. Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>
